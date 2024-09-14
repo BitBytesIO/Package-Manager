@@ -4,6 +4,8 @@ The Package Manager is an add-on designed to streamline the management of Python
 
 This add-on aims to simplify the workflow for Blender users who need to manage Python packages for scripting and plugin development. It eliminates the need to use external package managers by integrating package management into the Blender interface.
 
+![Package Installer](https://github.com/user-attachments/assets/bd79387f-990e-4220-92bb-0e3146d43007)
+
 ## Usage
 
 ### 1. **Search Packages**
