@@ -39,6 +39,7 @@ This add-on aims to simplify the workflow for Blender users who need to manage P
 
 - The add-on requires Blender 2.82 or higher.
 - Internet access is required for searching and downloading packages.
+- Once the package is installed/remove it requires restart to apply changes.
 
 ## Contributing
 
