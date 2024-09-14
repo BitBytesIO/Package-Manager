@@ -8,6 +8,19 @@ from bs4 import BeautifulSoup
 import pkg_resources
 from bpy_extras.io_utils import ImportHelper
 
+bl_info = {
+    "name": "Package Manager",
+    "blender": (4, 2, 1),
+    "version": (1, 0, 0),
+    "category": "Text Editor",
+    "author": "Kent Edoloverio",
+    "location": "Text Editor > Package Manager",
+    "description": "A panel for managing Python packages directly within Blender.",
+    "warning": "Once the package is installed/remove it requires restart to apply changes",
+    "tracker_url": "https://github.com/kents00/Package-Manager/issues",
+    "wiki_url": "https://github.com/kents00/Package-Manager",
+}
+
 def search_pypi_html(query):
     base_url = 'https://pypi.org/search/'
     params = {'q': query}
@@ -281,8 +294,7 @@ class WM_OT_BulkDownloadPackages(bpy.types.Operator):
     def execute(self, context):
         file_path = context.scene.bulk_download_path
         if install_packages_from_requirements(file_path, context):
-            self.report({'INFO'}, f"Packages from {
-                        file_path} installed successfully.")
+            self.report({'INFO'}, f"Packages from {file_path} installed successfully.")
         else:
             self.report(
                 {'ERROR'}, f"Failed to install packages from {file_path}.")
