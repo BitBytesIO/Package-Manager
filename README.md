@@ -1,6 +1,6 @@
-# Package-Installer
+# Package Manager
 
-The Package Installer is an add-on designed to streamline the management of Python packages directly within Blender. It provides an easy-to-use interface for searching, installing, and managing Python packages, along with bulk download capabilities for package requirements.
+The Package Manager is an add-on designed to streamline the management of Python packages directly within Blender. It provides an easy-to-use interface for searching, installing, and managing Python packages, along with bulk download capabilities for package requirements.
 
 This add-on aims to simplify the workflow for Blender users who need to manage Python packages for scripting and plugin development. It eliminates the need to use external package managers by integrating package management into the Blender interface.
 
@@ -25,11 +25,11 @@ This add-on aims to simplify the workflow for Blender users who need to manage P
 ## Installation
 
 1. **Download the Add-On:**
-    - Save the script from this repository as a `.py` file.
+    - Save the script from this repository.
 2. **Install the Add-On in Blender:**
     - Open Blender.
     - Go to `Edit` > `Preferences` > `Add-ons`.
-    - Click `Install...` and select the saved `.py` file.
+    - Click `Install...` and select the `Package-Manager.zip` file.
     - Enable the add-on by checking the checkbox next to "Package Manager."
 3. **Access the Panel:**
     - Switch to the Text Editor workspace.
