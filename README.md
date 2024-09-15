@@ -4,6 +4,8 @@ The Package Manager is an add-on designed to streamline the management of Python
 
 This add-on aims to simplify the workflow for Blender users who need to manage Python packages for scripting and plugin development. It eliminates the need to use external package managers by integrating package management into the Blender interface.
 
+![Package Installer 1](https://github.com/user-attachments/assets/d0238775-e577-478e-a37f-ff95e1290e16)
+
 ## Usage
 
 ### 1. **Search Packages**
@@ -24,14 +26,51 @@ This add-on aims to simplify the workflow for Blender users who need to manage P
 
 ## Installation
 
-1. **Download the Add-On:**
+1. **Find Blender's Python Executable**: Blender comes with its own bundled Python interpreter. You need to find where this interpreter is located.
+    - Open Blender.
+    - Go to the **Scripting** tab.
+    - In the Python console within Blender, run the following command to find the path to the Python executable:
+        
+        ```python
+        import sys
+        print(sys.executable)
+        ```
+        
+    
+    This will print the path to Blender's Python executable, which will look something like `/path/to/blender/2.93/python/bin/python`.
+    
+2. **Open Command Prompt or Terminal**: Open your command prompt (Windows) or terminal (Mac/Linux).
+3. **Navigate to Blender's Python Executable Directory**: Navigate to the directory containing Blender's Python executable. For example:
+    
+    ```bash
+    cd /path/to/blender/2.93/python/bin
+    ```
+    
+4. **Install the Package Using Blender's Python**: Use Blender's Python executable to install the `bs4` package (or any other required package). Replace `path/to/python` with the actual path you obtained in step 1.
+    
+    ```bash
+    ./python -m ensurepip
+    ./python -m pip install bs4
+    
+    # IN WINDOWS
+    cd "C:\Program Files\Blender Foundation\Blender 2.93\2.93\python\bin" # EXAMPLE PATH
+    python.exe -m ensurepip
+    python.exe -m pip install bs4
+    
+    # IN MAC OS
+    cd /Applications/Blender.app/Contents/Resources/2.93/python/bin # EXAMPLE PATH
+    ./python3.7m -m ensurepip
+    ./python3.7m -m pip install bs4
+    ```
+    
+5. **Download the Add-On:**
     - Save the script from this repository.
-2. **Install the Add-On in Blender:**
+6. **Install the Add-On in Blender:**
     - Open Blender.
     - Go to `Edit` > `Preferences` > `Add-ons`.
     - Click `Install...` and select the `Package-Manager.zip` file.
     - Enable the add-on by checking the checkbox next to "Package Manager."
-3. **Access the Panel:**
+7. **Access the Panel:**
     - Switch to the Text Editor workspace.
     - You will find the "Package Manager" panel in the UI tab on the left side of the Text Editor.
 
