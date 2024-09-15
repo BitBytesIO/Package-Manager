@@ -153,7 +153,7 @@ class PackageManagementPanel(bpy.types.Panel):
         box = layout.box()
         row = box.row()
         row.prop(context.scene, "show_search_results", text="Show Search Results",
-                 icon='TRIA_DOWN' if context.scene.show_search_results else 'TRIA_RIGHT')
+                icon='TRIA_DOWN' if context.scene.show_search_results else 'TRIA_RIGHT')
         if context.scene.show_search_results:
             if context.scene.package_list:
                 for package in context.scene.package_list[:int(context.scene.pagination_limit)]:
@@ -161,8 +161,9 @@ class PackageManagementPanel(bpy.types.Panel):
                     row = box.row()
                     row.label(text=package.name, icon='FILE_SCRIPT')
                     row.label(text=f"v{package.version}")
+                    row = box.row()  # New row for the buttons
                     row.operator("wm.download_package",
-                                 text="Download").package_name = package.name
+                                text="Download").package_name = package.name
             else:
                 box.label(text="No results found.")
 
@@ -171,7 +172,7 @@ class PackageManagementPanel(bpy.types.Panel):
 
         row = layout.row()
         row.prop(context.scene, "installed_search_query",
-                 text="Search Installed Packages")
+                text="Search Installed Packages")
         row.operator("wm.search_installed_packages", text="Search")
 
         layout.operator("wm.refresh_installed_packages", text="Refresh")
@@ -179,18 +180,21 @@ class PackageManagementPanel(bpy.types.Panel):
         box = layout.box()
         row = box.row()
         row.prop(context.scene, "show_installed_packages", text="Show Installed Packages",
-                 icon='TRIA_DOWN' if context.scene.show_installed_packages else 'TRIA_RIGHT')
+                icon='TRIA_DOWN' if context.scene.show_installed_packages else 'TRIA_RIGHT')
         if context.scene.show_installed_packages:
             filtered_packages = [pkg for pkg in context.scene.installed_package_list
-                                 if context.scene.installed_search_query.lower() in pkg.name.lower()]
+                                if context.scene.installed_search_query.lower() in pkg.name.lower()]
             if filtered_packages:
                 for package in filtered_packages:
                     box = layout.box()
                     row = box.row()
                     row.label(text=package.name, icon='FILE_SCRIPT')
                     row.label(text=f"v{package.version}")
+
+                    # New row for Disable and Auto Update buttons
+                    row = box.row()  # Adding another row below the name and version
                     row.operator("wm.disable_package",
-                                 text="Disable").package_name = package.name
+                                text="Disable").package_name = package.name
                     row.prop(package, "auto_update", text="Auto Update")
             else:
                 box.label(text="No installed packages match the search query.")
